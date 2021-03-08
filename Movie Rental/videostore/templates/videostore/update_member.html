@@ -1,0 +1,25 @@
+{% extends "videostore/base.html" %}
+
+{% block title %}
+    {% if member %}
+        <title>Update {{member.member_name}}</title>
+    {% else %}
+        <title>Update Movie</title>
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        {% if member %}
+            <h3 style="text-align:center"> <span class="badge bg-dark">Update {{member.member_name}}</span></h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-dark">Update</button>
+            </form>
+        {% else %}
+            <h1>No Movie Found</h1>
+        {% endif %}
+            
+    </div>
+{% endblock content %}

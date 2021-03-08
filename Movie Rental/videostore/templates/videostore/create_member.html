@@ -1,0 +1,18 @@
+{% extends "videostore/base.html" %}
+
+{% block title %}
+    <title>Create New Member</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h3 style="text-align:center"> <span class="badge bg-dark">CREATE MEMBER</span></h3>
+        {% if form %}
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-dark">Create</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock content %}

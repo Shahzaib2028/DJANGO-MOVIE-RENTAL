@@ -1,0 +1,21 @@
+{% extends "videostore/base.html" %}
+
+{% block title %}
+    <title>Member</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="mt-3">
+        {% if data %}
+        <div class="jumbotron text-center">
+            <h3 style="text-align:center" > <span class="badge bg-dark">Thank You!</span></h3>
+            <p class="lead"><strong>{{ data.strong }}</strong> {{ data.simple}}.</p>
+            <hr>
+            <p>Having trouble? <a href="#">Contact Us</a></p>
+            <p class="lead">
+                <a class="btn btn-dark btn-sm" href="/" role="button">Continue to homepage</a>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}

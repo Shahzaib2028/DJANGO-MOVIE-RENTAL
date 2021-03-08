@@ -1,0 +1,42 @@
+{% extends "videostore/base.html" %}
+
+{% block title %}
+    <title>Movie Info</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h3 style="text-align:center"> <span class="badge bg-dark">MOVIES INFO</span></h3>
+
+        <a href="/movie/create/" class="btn btn-dark mb-3" style="float:right">Create New Movie</a>
+
+        <table class="table table-hover">
+            <thead>
+                <tr class="bg-dark" style="color: white;">
+                    <th scope="col">Movie Name</th>
+                    <th scope="col">Movie Year</th>
+                    <th scope="col">Movie Genere</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data %}
+                    {% for movie in data %}
+                        <tr class="bg-info">
+                            <td>{{ movie.movie_name }}</td>
+                            <td>{{ movie.movie_year }}</td>
+                            <td>{{ movie.movie_genere }}</td>
+                            <td>{{ movie.price }}</td>
+                            <td>
+                                <a href="/movie/update/{{movie.id}}" class="btn btn-warning" role="button" aria-pressed="true">Edit</a>
+                                <a href="/movie/delete/{{movie.id}}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+            
+    </div>
+{% endblock content %}
